@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import api from "../Api/api";
-import { NavLink } from "react-router-dom";
+import GridBox from "./GribBox";
 
 class AlbumList extends Component {
   state = {
@@ -26,23 +26,14 @@ class AlbumList extends Component {
 
   renderAlbumList = (x, y) => {
     return (
-      <div key={x.id} className="col-lg-2 col-md-4 col-sm-4 col-xs-6 grid-mar">
-        <NavLink
-          key={y}
-          to={`/album/${x.albumId}`}
-          className="albumGrid"
-          onClick={this.albumHandler}
-          id={x.albumId}
-        >
-          <img
-            src={x.thumbnailUrl}
-            onClick={this.imageSelector}
-            id={x.id}
-            alt=""
-          />
-          <span>Album-{x.albumId}</span>
-        </NavLink>
-      </div>
+      <GridBox
+        albumId={x.albumId}
+        key={y}
+        thumbnailUrl={x.thumbnailUrl}
+        title={x.title}
+        label={x.title}
+        linkEnable={true}
+      />
     );
   };
 
