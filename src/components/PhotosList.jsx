@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import api from "../Api/api";
 
 class PhotosList extends Component {
   constructor(props) {
@@ -12,7 +13,9 @@ class PhotosList extends Component {
   }
 
   componentDidMount = () => {
-    console.log(this.state.AlbumID);
+    api.getDataList(`?albumId=${this.state.AlbumID}`).then(result => {
+      console.log(result.data);
+    });
   };
   render() {
     return <h1>PhotosList</h1>;

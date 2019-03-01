@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import api from "../api/api";
+import api from "../Api/api";
 import { NavLink } from "react-router-dom";
 
 class AlbumList extends Component {
