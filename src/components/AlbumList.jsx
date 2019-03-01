@@ -10,8 +10,16 @@ class AlbumList extends Component {
   componentDidMount = () => {
     api.getDataList().then(res => {
       const data = res.data;
+      let uniqueAlbumList = [];
       const getUniqueAlbumIds = [...new Set(data.map(item => item.albumId))];
-      console.log(getUniqueAlbumIds);
+      getUniqueAlbumIds.forEach(unique => {
+        uniqueAlbumList[unique - 1] = data
+          .map(x => {
+            return x;
+          })
+          .filter(x => x.albumId == unique)[0];
+      });
+      this.setState({ uniqueAlbumList });
     });
   };
 
