@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import api from "../Api/api";
+import GridBox from "./GribBox";
 
 class PhotosList extends Component {
   constructor(props) {
@@ -22,15 +23,14 @@ class PhotosList extends Component {
 
   imageGridGenerator = x => {
     return (
-      <div key={x.id} className="col-lg-2 col-md-4 col-sm-4 col-xs-6 grid-mar">
-        <img
-          src={x.thumbnailUrl}
-          onClick={this.imageSelector}
-          id={x.id}
-          alt={x.title}
-        />
-        <span>{x.title}</span>
-      </div>
+      <GridBox
+        label={x.title}
+        key={x.id}
+        thumbnailUrl={x.thumbnailUrl}
+        title={x.title}
+        linkEnable={false}
+        url={x.url}
+      />
     );
   };
 
