@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const getDataList = (path = "") => {
-  console.log(path);
   return new Promise(resolve => {
     axios
       .get(`https://jsonplaceholder.typicode.com/photos${path}`)
