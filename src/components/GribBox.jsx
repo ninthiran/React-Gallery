@@ -5,13 +5,23 @@ import PopupLayout from "./PopupLayout";
 class GridBox extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      popupUrl: "",
+      showPopUp: false
+    };
   }
 
   imageSelector = e => {
     const magnifierUrl = e.target.title;
     this.setState({ popupUrl: magnifierUrl }, function() {
       console.log(this.state.popupUrl);
+    });
+    this.popupToggle();
+  };
+
+  popupToggle = () => {
+    this.setState({
+      showPopUp: !this.state.showPopUp
     });
   };
 
@@ -34,7 +44,12 @@ class GridBox extends Component {
             <p>{this.props.label}</p>
           </div>
         )}
-        <PopupLayout />
+        {this.state.showPopUp ? (
+          <PopupLayout
+            popupClose={this.popupToggle}
+            selectedImage={this.state.popupUrl}
+          />
+        ) : null}
       </div>
     );
   }

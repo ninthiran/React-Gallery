@@ -5,10 +5,10 @@ class PopupLayout extends Component {
   render() {
     return (
       <div className="popup">
+        <img src={this.props.selectedImage} alt="" className="popup-inner" />
         <button className="close-btn" onClick={this.props.popupClose}>
           X
         </button>
-        <h1>text</h1>
       </div>
     );
   }
