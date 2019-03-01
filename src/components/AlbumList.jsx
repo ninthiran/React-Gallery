@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import api from "../api/api";
+import { NavLink } from "react-router-dom";
 
 class AlbumList extends Component {
   state = {
@@ -26,13 +27,21 @@ class AlbumList extends Component {
   renderAlbumList = (x, y) => {
     return (
       <div key={x.id} className="col-lg-2 col-md-4 col-sm-4 col-xs-6 grid-mar">
-        <img
-          src={x.thumbnailUrl}
-          onClick={this.imageSelector}
-          id={x.id}
-          alt=""
-        />
-        <span>Album-{x.albumId}</span>
+        <NavLink
+          key={y}
+          to={`/album/${x.albumId}`}
+          className="albumGrid"
+          onClick={this.albumHandler}
+          id={x.albumId}
+        >
+          <img
+            src={x.thumbnailUrl}
+            onClick={this.imageSelector}
+            id={x.id}
+            alt=""
+          />
+          <span>Album-{x.albumId}</span>
+        </NavLink>
       </div>
     );
   };
