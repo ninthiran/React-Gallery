@@ -23,8 +23,29 @@ class AlbumList extends Component {
     });
   };
 
+  renderAlbumList = (x, y) => {
+    return (
+      <div key={x.id} className="col-lg-2 col-md-4 col-sm-4 col-xs-6 grid-mar">
+        <img
+          src={x.thumbnailUrl}
+          onClick={this.imageSelector}
+          id={x.id}
+          alt=""
+        />
+        <span>Album-{x.albumId}</span>
+      </div>
+    );
+  };
+
   render() {
-    return <h1>AlbumList</h1>;
+    return (
+      <div className="container">
+        <h1>Select an album to view image </h1>
+        <div className="row">
+          {this.state.uniqueAlbumList.map((x, y) => this.renderAlbumList(x, y))}
+        </div>
+      </div>
+    );
   }
 }
 
