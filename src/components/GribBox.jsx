@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import PopupLayout from "./PopupLayout";
 
 class GridBox extends Component {
   state = {};
@@ -22,6 +23,7 @@ class GridBox extends Component {
             <p>{this.props.label}</p>
           </div>
         )}
+        <PopupLayout />
       </div>
     );
   }
