@@ -3,7 +3,18 @@ import { NavLink } from "react-router-dom";
 import PopupLayout from "./PopupLayout";
 
 class GridBox extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  imageSelector = e => {
+    const magnifierUrl = e.target.title;
+    this.setState({ popupUrl: magnifierUrl }, function() {
+      console.log(this.state.popupUrl);
+    });
+  };
+
   render() {
     return (
       <div className="col-lg-2 col-md-4 col-sm-4 col-xs-6 grid-mar">
